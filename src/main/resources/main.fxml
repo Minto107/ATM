@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="res.MainController">
+   <children>
+      <Label fx:id="welcome" alignment="CENTER" layoutX="25.0" layoutY="48.0" prefHeight="35.0" prefWidth="550.0" text="Welcome" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="bal" alignment="CENTER" layoutX="40.0" layoutY="117.0" prefHeight="35.0" prefWidth="512.0" text="Curr bal" visible="false">
+         <font>
+            <Font name="System Italic" size="24.0" />
+         </font>
+      </Label>
+      <GridPane fx:id="mainScreen" layoutX="25.0" layoutY="172.0" prefHeight="205.0" prefWidth="550.0" visible="false">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onAction="#withdraw" prefHeight="126.0" prefWidth="281.0" text="Withdraw" />
+            <Button mnemonicParsing="false" onAction="#deposit" prefHeight="126.0" prefWidth="281.0" text="Deposit" GridPane.columnIndex="1" />
+            <Button mnemonicParsing="false" onAction="#pinChange" prefHeight="126.0" prefWidth="281.0" text="Change PIN" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#details" prefHeight="126.0" prefWidth="281.0" text="Your account" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <Button layoutX="524.0" layoutY="14.0" mnemonicParsing="false" onAction="#shutdown" text="Log out" />
+      <AnchorPane fx:id="newAccountPane" layoutX="19.0" layoutY="142.0" prefHeight="234.0" prefWidth="566.0" visible="false">
+         <children>
+            <PasswordField fx:id="firstPIN" layoutX="345.0" layoutY="69.0" />
+            <PasswordField fx:id="secondPIN" layoutX="345.0" layoutY="146.0" />
+            <Label fx:id="enterPIN" alignment="CENTER" layoutX="344.0" layoutY="26.0" prefHeight="26.0" prefWidth="150.0" text="Enter PIN">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="cnfPIN" alignment="CENTER" layoutX="344.0" layoutY="104.0" prefHeight="26.0" prefWidth="150.0" text="Confirm PIN">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Button fx:id="PINEnterNew" layoutX="208.0" layoutY="184.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="35.0" prefWidth="150.0" text="OK" />
+            <Label fx:id="nameLab" alignment="CENTER" layoutX="98.0" layoutY="26.0" prefHeight="26.0" prefWidth="150.0" text="Enter Name">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="surLab" alignment="CENTER" layoutX="98.0" layoutY="104.0" prefHeight="26.0" prefWidth="150.0" text="Enter Surname">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameF" layoutX="99.0" layoutY="69.0" />
+            <TextField fx:id="surF" layoutX="99.0" layoutY="146.0" />
+         </children>
+      </AnchorPane>
+      <Button layoutX="524.0" layoutY="53.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="58.0" text="Back" />
+      <AnchorPane fx:id="loginPane" layoutX="205.0" layoutY="124.0" prefHeight="234.0" prefWidth="200.0" visible="false">
+         <children>
+            <Label alignment="CENTER" layoutX="16.0" layoutY="47.0" prefHeight="35.0" prefWidth="167.0" text="Enter PIN">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Button alignment="CENTER" layoutX="16.0" layoutY="172.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="167.0" text="OK" textAlignment="CENTER">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <PasswordField fx:id="passwordBack" layoutX="26.0" layoutY="117.0" />
+         </children>
+      </AnchorPane>
+      <GridPane fx:id="withdrawDep" layoutX="20.0" layoutY="184.0" prefHeight="166.0" prefWidth="550.0" visible="false">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onAction="#w10" prefHeight="104.0" prefWidth="290.0" text="10 PLN" />
+            <Button mnemonicParsing="false" onAction="#w20" prefHeight="104.0" prefWidth="290.0" text="20 PLN" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#w50" prefHeight="104.0" prefWidth="290.0" text="50 PLN" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#w100" prefHeight="104.0" prefWidth="290.0" text="100 PLN" GridPane.columnIndex="1" />
+            <Button mnemonicParsing="false" onAction="#w500" prefHeight="104.0" prefWidth="290.0" text="500 PLN" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#custom" prefHeight="104.0" prefWidth="290.0" text="Custom amount" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <Label fx:id="infoLabel" alignment="CENTER" layoutX="39.0" layoutY="152.0" prefHeight="18.0" prefWidth="550.0" text="Select one of the following options" visible="false">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="details" layoutX="74.0" layoutY="152.0" prefHeight="200.0" prefWidth="455.0" visible="false">
+         <children>
+            <Label alignment="CENTER" layoutX="23.0" layoutY="25.0" prefHeight="26.0" prefWidth="414.0" text="Your data:" wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="168.0" layoutY="51.0" prefHeight="50.0" prefWidth="124.0" text="Name">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="detailsName" editable="false" layoutX="155.0" layoutY="116.0" prefHeight="38.0" prefWidth="149.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="changePINPane" layoutX="98.0" layoutY="159.0" prefHeight="200.0" prefWidth="414.0" visible="false">
+         <children>
+            <Label alignment="CENTER" layoutX="29.0" layoutY="14.0" prefHeight="26.0" prefWidth="90.0" text="Current PIN" />
+            <Label alignment="CENTER" layoutX="258.0" layoutY="18.0" prefHeight="18.0" prefWidth="150.0" text="New PIN" />
+            <Label alignment="CENTER" layoutX="258.0" layoutY="100.0" prefHeight="18.0" prefWidth="149.0" text="Confirm PIN" />
+            <PasswordField fx:id="currPIN" layoutY="59.0" />
+            <PasswordField fx:id="newPIN" layoutX="257.0" layoutY="59.0" />
+            <PasswordField fx:id="newPINConf" layoutX="257.0" layoutY="137.0" />
+            <Button fx:id="button1" layoutX="25.0" layoutY="136.0" mnemonicParsing="false" onAction="#changePIN" prefHeight="26.0" prefWidth="98.0" text="Change PIN!" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="customPane" layoutX="46.0" layoutY="152.0" prefHeight="200.0" prefWidth="512.0" visible="false">
+         <children>
+            <Label alignment="CENTER" graphicTextGap="10.0" layoutX="15.0" layoutY="14.0" prefHeight="26.0" prefWidth="479.0" text="Enter the amount that you'd like to withdraw/deposit:">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="customAmount" alignment="CENTER" layoutX="182.0" layoutY="63.0" prefHeight="50.0" prefWidth="149.0" promptText="Amount(in PLN)" />
+            <Button alignment="CENTER" layoutX="182.0" layoutY="139.0" mnemonicParsing="false" onAction="#wCustom" prefHeight="35.0" prefWidth="150.0" text="Confirm" textAlignment="CENTER" textOverrun="CLIP" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
